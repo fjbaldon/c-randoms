@@ -1,6 +1,6 @@
 // Name: digit_reversal.c
 // Purpose: To reverse a two-three digit number
-// Author: constantineexx
+// Author: Francis Baldon
 
 #include <stdio.h>
 #include <stdlib.h>
