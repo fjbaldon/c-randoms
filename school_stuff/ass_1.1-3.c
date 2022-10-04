@@ -1,4 +1,4 @@
-// Name: assignment_1.c
+// Name: assignment_1.1-3.c
 // Purpose: AIO program that contains functions that you can use in Items no. 1 - 3.
 // Author: Francis Baldon
 
