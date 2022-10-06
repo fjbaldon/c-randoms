@@ -5,7 +5,7 @@ int main(void) {
   clrscr();
   printf("Total Assessment Calculator\n");
   int num_units;
-  float cost_per_unit, misc_fees, lab_fees, equip_fees, tot_others, tot_assess;
+  float cost_per_unit, misc_fees, lab_fees, equip_fees, tot_assess;
 
   printf("Enter number of units enrolled: ");
   scanf("%d", &num_units);
@@ -19,9 +19,7 @@ int main(void) {
   printf("Enter equipment fees: ");
   scanf("%f", &equip_fees);
 
-  tot_others = misc_fees + lab_fees + equip_fees;
   tot_assess = (num_units * cost_per_unit) + (misc_fees + lab_fees + equip_fees);
-  printf("\nTotal of 'other' charges: PHP %.2f\n", tot_others);
   printf("Your total assessment will be: PHP %.2f\n", tot_assess);
 
   getch();
