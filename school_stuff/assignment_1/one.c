@@ -3,18 +3,14 @@
 
 int main(void) {
   clrscr();
-  printf("Water Bill Calculator\n");
-  float prev_reading, pres_reading, bill;
-  const float COST_PER_CUBIC_METER = 15.50;
+  printf("Square of a Number\n");
+  int num;
 
-  printf("\nEnter previous reading in cubic meter: ");
-  scanf("%f", &prev_reading);
-  printf("Enter present reading in cubic meter:  ");
-  scanf("%f", &pres_reading);
+  printf("\nEnter number: ");
+  scanf("%d", &num);
   
-  bill = (pres_reading - prev_reading) * COST_PER_CUBIC_METER;
-  printf("\nYour water bill will be: PHP %.2f\n", bill);
+  printf("\n%d ^ 2 is %d\n", num, num * num);
 
   getch();
   return 0;
-}
+} 
