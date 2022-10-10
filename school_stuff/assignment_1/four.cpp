@@ -4,11 +4,10 @@
 int main(void) {
   clrscr();
   printf("Total Assessment Calculator\n");
-  int num_units;
-  float cost_per_unit, misc_fees, lab_fees, equip_fees, tot_assess;
+  float num_units, cost_per_unit, misc_fees, lab_fees, equip_fees, tot_assess;
 
   printf("\nEnter number of units enrolled: ");
-  scanf("%d", &num_units);
+  scanf("%f", &num_units);
   printf("Enter cost per unit:            ");
   scanf("%f", &cost_per_unit);
   puts("\nOTHER CHARGES");
