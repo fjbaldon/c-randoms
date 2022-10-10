@@ -3,17 +3,24 @@
 
 int main(void) {
   clrscr();
-  printf("Water Bill Calculator\n");
-  float prev_reading, pres_reading, bill;
-  const float COST_PER_CUBIC_METER = 15.50;
+  printf("Total Assessment Calculator\n");
+  int num_units;
+  float cost_per_unit, misc_fees, lab_fees, equip_fees, tot_assess;
 
-  printf("Enter previous reading in cubic meter: ");
-  scanf("%f", &prev_reading);
-  printf("Enter present reading in cubic meter: ");
-  scanf("%f", &pres_reading);
+  printf("\nEnter number of units enrolled: ");
+  scanf("%d", &num_units);
+  printf("Enter cost per unit:            ");
+  scanf("%f", &cost_per_unit);
+  puts("\nOTHER CHARGES");
+  printf("Enter miscellaneous fees:       ");
+  scanf("%f", &misc_fees);
+  printf("Enter lab fees:                 ");
+  scanf("%f", &lab_fees);
+  printf("Enter equipment fees:           ");
+  scanf("%f", &equip_fees);
   
-  bill = (pres_reading - prev_reading) * COST_PER_CUBIC_METER;
-  printf("Your water bill will be: PHP %.2f\n", bill);
+  tot_assess = (num_units * cost_per_unit) + (misc_fees + lab_fees + equip_fees);
+  printf("\nYour total assessment will be: PHP %.2f\n", tot_assess);
 
   getch();
   return 0;
