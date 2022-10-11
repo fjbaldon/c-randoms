@@ -10,7 +10,7 @@ int main(void) {
   scanf("%f", &num_units);
   printf("Enter cost per unit:            ");
   scanf("%f", &cost_per_unit);
-  puts("\nOTHER CHARGES");
+  printf("\nOTHER CHARGES\n");
   printf("Enter miscellaneous fees:       ");
   scanf("%f", &misc_fees);
   printf("Enter lab fees:                 ");
