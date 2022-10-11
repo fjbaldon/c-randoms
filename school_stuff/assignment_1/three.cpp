@@ -16,7 +16,7 @@ int main(void) {
   scanf("%d", &num_4);
   
   diff = (num_1 + num_2) - (num_3 + num_4);
-  printf("\n%d + %d - %d + %d = %d\n", num_1, num_2, num_3, num_4, diff);
+  printf("\n(%d + %d) - (%d + %d) = %d\n", num_1, num_2, num_3, num_4, diff);
 
   getch();
   return 0;
