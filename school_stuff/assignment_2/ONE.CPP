@@ -15,15 +15,15 @@ main() {
   read = pres_rd - prev_rd;
   part_bll = read * rate;
 
-  if (read < 10.0) {
+  if (read < 10) {
     tax = part_bll * 0.10;
-  } else if (read >= 10.0 && read <= 25.0) {
+  } else if (read >= 10 && read <= 25) {
     tax = part_bll * 0.15;
-  } else if (read >= 26.0 && read <= 45.0) {
+  } else if (read >= 26 && read <= 45) {
     tax = part_bll * 0.20;
-  } else if (read >= 46.0 && read <= 60.0) {
+  } else if (read >= 46 && read <= 60) {
     tax = part_bll * 0.25;
-  } else if (read > 60.0) {
+  } else if (read > 60) {
     tax = part_bll * 0.30;
   }
 
