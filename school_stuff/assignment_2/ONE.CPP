@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 
-int main(void) {
+main() {
   clrscr();
   float prev_rd, pres_rd, read, rate, part_bll, tax, bill;
 
@@ -13,7 +13,7 @@ int main(void) {
   scanf("%f", &rate);
 
   read = pres_rd - prev_rd;
-  part_bll = (pres_rd - prev_rd) * rate;
+  part_bll = read * rate;
 
   if (read < 10.0) {
     tax = part_bll * 0.10;
@@ -28,8 +28,7 @@ int main(void) {
   }
 
   bill = part_bll + tax;
-  printf("\nBill will be PHP %9.2f\n", bill);
+  printf("\nBill will be PHP %.2f\n", bill);
 
   getch();
-  return 0;
 }

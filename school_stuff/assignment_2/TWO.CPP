@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 
-int main(void) {
+main() {
   clrscr();
   float temp, dose;
   printf("Enter temp: ");
@@ -19,8 +19,7 @@ int main(void) {
     dose = 0.0;
   }
 
-  printf("\nDosage is at %.2f\n", dose); 
+  printf("\nDosage is at %.2f ml\n", dose); 
 
   getch();
-  return 0;
 } 
