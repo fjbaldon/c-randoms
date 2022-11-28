@@ -3,7 +3,7 @@
 
 main() {
   clrscr();
-  int a, b, c, d, e;
+  int a, b, c, ab, abc;
 
   printf("Enter first number:  ");
   scanf("%d", &a);
@@ -12,8 +12,8 @@ main() {
   printf("Enter third number:  ");
   scanf("%d", &c);
 
-  e = (d = a > b ? a : b) < c ? c : d;
-  printf("\nThe largest number is %d.\n", e);
+  abc = (ab = a > b ? a : b) < c ? c : d;
+  printf("\nThe largest number is %d.\n", abc);
 
   getch();
 }
