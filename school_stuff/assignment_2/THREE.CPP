@@ -12,7 +12,7 @@ main() {
   printf("Enter third number:  ");
   scanf("%d", &c);
 
-  abc = (ab = a > b ? a : b) < c ? c : d;
+  abc = (ab = a > b ? a : b) > c ? ab : c;
   printf("\nThe largest number is %d.\n", abc);
 
   getch();
