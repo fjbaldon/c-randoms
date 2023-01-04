@@ -1,4 +1,9 @@
+// Name: equi_quali_rat.c
+// Purpose: Calculate rating based on numerical grade
+// Author: Francis Baldon
+
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
   float grades[5] = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
@@ -26,5 +31,5 @@ int main(void) {
   printf("\nMaximum grade is: %.2f in %s.\n", grades[max_i], subjects[max_i]);
   printf("Rating: %s\n", rating);
 
-  return 0;
+  return EXIT_SUCCESS;
 }

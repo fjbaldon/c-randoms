@@ -1,3 +1,7 @@
+// Name: abc_store.c
+// Purpose: Cashier for a shop that sells balls
+// Author: Francis Baldon
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -22,5 +26,5 @@ int main(void) {
   printf("TOTAL: %.2f\n", balls_cashier(balls));
   puts("\n*** THANK YOU FOR SHOPPING WITH US ***");
 
-  return 0;
+  return EXIT_SUCCESS;
 }

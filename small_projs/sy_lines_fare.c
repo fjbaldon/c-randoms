@@ -1,3 +1,7 @@
+// Name: sy_lines_fare.c
+// Purpose: Cashier for public transportation
+// Author: Francis Baldon
+
 #include <stdio.h>
 
 float taxiFare(float km) {
