@@ -41,10 +41,12 @@ int main(void) {
 			printf("AGAIN? [y/n]: ");
 			scanf(" %c", &flag);
 		} while (flag != 'y' && flag != 'n');
-		do {
-			printf("RESET GRAND SUM? [y/n]");
-			scanf(" %c", &restgtot);
-		} while (restgtot!= 'y' && restgtot != 'n');
+		if (flag == 'y') {
+			do {
+				printf("RESET GRAND SUM? [y/n]");
+				scanf(" %c", &restgtot);
+			} while (restgtot!= 'y' && restgtot != 'n');
+		}
 		if (restgtot == 'y') {
 			gtot = 0.0;
 		} 		
