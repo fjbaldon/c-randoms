@@ -6,18 +6,18 @@
 #include <stdlib.h>
 #include <unistd.h> // for sleep()
 
-int get_identity(void);
-int main_menu(void);
-int one_m(void);
-float two_m(float*, float*, float*);
-int three_m(void);
-int four_m(void);
-int helper(void);
+int get_identity(void); // checks for the password
+int main_menu(void); // main menu
+int one_m(void); // first option
+float two_m(float*, float*, float*); //second option
+int three_m(void); // third option
+int four_m(void); // fourth option
+int prompt_user(void); // prompts the user to go back or exit
 
 int main(void) {
 	int ch = 0;
 	int c = 0; // for case 3
-	float balance = 0.0, depst = 0.0, wdraw = 0.0; // atm
+	float balance = 0.0, depst = 0.0, wdraw = 0.0; // for case 2
 
 
 	get_identity();
@@ -30,7 +30,7 @@ int main(void) {
 				if (one_m() == 4) {
 					goto mmenu;
 				}
-				if (helper() == 1) {
+				if (prompt_user() == 1) {
 					continue;
 				} else {
 					puts("");
@@ -44,7 +44,7 @@ int main(void) {
 					puts("");
 					break;
 				}
-				if (helper() == 1) {
+				if (prompt_user() == 1) {
 					continue;
 				} else {
 					puts("");
@@ -63,7 +63,7 @@ int main(void) {
 					puts("");
 					break;
 				}
-				if (helper() == 1) {
+				if (prompt_user() == 1) {
 					continue;
 				} else {
 					puts("");
@@ -83,7 +83,7 @@ int get_identity(void) {
 	int p = 1234, up = 0;
 
 	do {
-		printf("Enter PIN: ");
+		printf("\n\tEnter password: ");
 		scanf("%d", &up);
 		if (p != up)
 			puts("Incorrect password! Try again.");
@@ -148,11 +148,11 @@ int one_m(void) {
 		break;
 		case 2:
 			system("clear");
-			printf("Enter freight: ");
+			printf("Enter freight:      ");
 			scanf("%f", &freight);
-			printf("Enter vat:     ");
+			printf("Enter vat:          ");
 			scanf("%f", &vat);
-			printf("Enter tfee:    ");
+			printf("Enter terminal fee: ");
 			scanf("%f", &tfee);
 			fare = 500.00 + freight + vat + tfee;
 			if (fare < 1500.00) {
@@ -167,9 +167,9 @@ int one_m(void) {
 		case 3:
 			system("clear");
 			printf("Enter first name: ");
-			scanf("%127[^\n]%*c", fname);
+			scanf(" %127[^\n]%*c", fname);
 			printf("Enter last name : ");
-			scanf("%127[^\n]%*c", lname);
+			scanf(" %127[^\n]%*c", lname);
 			printf("Enter age       : ");
 			scanf("%d", &age);
 			printf("\nEnter other charges: ");
@@ -218,9 +218,9 @@ float two_m(float* balance, float* depst, float* wdraw) {
 	switch (ch) {
 		case 1: 
 			system("clear");
-			printf("Amount you want to deposit: ");
+			printf("\nAmount you want to deposit: ");
 			scanf("%f", &dtemp);
-			puts("Processing...");
+			puts("\nProcessing...");
 			*depst += dtemp;
 			*balance += dtemp;
 			sleep(3);
@@ -228,25 +228,25 @@ float two_m(float* balance, float* depst, float* wdraw) {
 		break;
 		case 2:
 			system("clear");
-			printf("Amount you want to withdraw: ");
+			printf("\nAmount you want to withdraw: ");
 			scanf("%f", &wtemp);
 			if (*balance < 100.00) {
-				puts("You can't transact your withdraw if you don't have 100 pesos left on your ATM card.");
+				puts("\nYou cannot transact your withdrawal if you don't have enough funds on your bank account. Account should have at least 100 PHP.");
 				break;
 			}
 			if (wtemp >= *depst) {
-				puts("Make sure the amount you withdrawn should be lesser the amount of your deposited money.");
+				puts("\nMake sure the amount you'll withdraw is lesser than the amount of your deposited money.");
 				break;
 			}
 			*wdraw += wtemp;
 			*balance = *balance - wtemp;
-			puts("Processing...");
+			puts("\nProcessing...");
 			sleep(2);
-			puts("Successfully Withdraw!");
+			puts("\nSuccessfully withdrawn!");
 		break;
 		case 3:
 			system("clear");
-			printf("DEPOSITED: %.2f\n", *depst);
+			printf("\nDEPOSITED: %.2f\n", *depst);
 			printf("WITHDRAWN: %.2f\n", *wdraw);
 			printf("BALANCE:   %.2f\n", *balance);
 		break;
@@ -281,8 +281,8 @@ int three_m(void) {
 	switch (ch) {
 		case 1: 
 			system("clear");
-			puts("\n\t\t STUDENT'S GRADE");
-			puts("\t\tRATING PERCENTAGE\n");
+			puts("\n\t\t\t STUDENT'S GRADE");
+			puts("\t\t\tRATING PERCENTAGE\n");
 			puts("[1] ELISA \tMAJOR EXAM(40%) PROJECTS(35%) QUIZZES(25%)");
 			puts("[2] NOEL  \tMAJOR EXAM(40%) PROJECTS(30%) QUIZZES(20%)");
 			puts("[3] BACK\n");
@@ -302,17 +302,17 @@ int three_m(void) {
 					puts("\n\tYou've chosen Elisa.");
 					printf("Supply the scores with this syntax: \n");
 					printf("score<SPACE>total | Example: 85 100\n");
-					printf("\nSCORES for QUIZ:   ");
+					printf("\nSCORES for QUIZ:    ");
 					scanf("%f %f", &quiz, &pquiz);
-					printf("SCORES for PROJECT:");
+					printf("SCORES for PROJECT: ");
 					scanf("%f %f", &project, &pproject);
-					printf("SCORES for EXAM:   ");
+					printf("SCORES for EXAM:    ");
 					scanf("%f %f", &exam, &pexam);
 					grade = (((quiz / pquiz) * 50) + 50) * 0.25;
 					grade += (((project / pproject) * 50) + 50) * 0.35;
 					grade += (((exam / pexam) * 50) + 50) * 0.40;
 					printf("\n\tELISA's GRADE: %.2f\n", grade);
-					if (helper() == 1) {
+					if (prompt_user() == 1) {
 						goto score;
 					} else {
 						return 4;
@@ -323,17 +323,17 @@ int three_m(void) {
 					puts("\n\tYou've chosen Noel.");
 					printf("Supply the scores with this syntax: \n");
 					printf("score<SPACE>total | Example: 85 100\n");
-					printf("\nSCORES for QUIZ:   ");
+					printf("\nSCORES for QUIZ:    ");
 					scanf("%f %f", &quiz, &pquiz);
-					printf("SCORES for PROJECT:");
+					printf("SCORES for PROJECT: ");
 					scanf("%f %f", &project, &pproject);
-					printf("SCORES for EXAM:   ");
+					printf("SCORES for EXAM:    ");
 					scanf("%f %f", &exam, &pexam);
 					grade = (((quiz / pquiz) * 50) + 50) * 0.20;
 					grade += (((project / pproject) * 50) + 50) * 0.30;
 					grade += (((exam / pexam) * 50) + 50) * 0.40;
 					printf("\n\tNOEL's GRADE: %.2f\n", grade);
-					if (helper() == 1) {
+					if (prompt_user() == 1) {
 						goto score;
 					} else {
 						return 5;
@@ -346,7 +346,7 @@ int three_m(void) {
 		break;
 		case 2:
 			system("clear");
-			puts("Opps!");
+			puts("\nOpps!");
 		break;
 		case 3:
 		break;
@@ -359,7 +359,7 @@ int four_m(void) {
 	return 0;
 }
 
-int helper(void) {
+int prompt_user(void) {
 	char ch = EOF;
 
 	do {
